@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/backgroundColor">
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/orange"
+            android:orientation="vertical"
+            android:padding="2dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.mancj.materialsearchbar.MaterialSearchBar
+                android:id="@+id/searchBar"
+                style="@style/MaterialSearchBarLight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:mt_hint="Search your favorite product"
+                app:mt_placeholder="FoodTails"
+                app:mt_navIconEnabled="true"
+                app:mt_maxSuggestionsCount="10"
+                app:mt_speechMode="true" />
+        </LinearLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="10dp">
+
+                    <org.imaginativeworld.whynotimagecarousel.ImageCarousel
+                        android:id="@+id/carousel"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        app:showNavigationButtons="false"
+                        app:showCaption="false"
+                        app:autoPlay="true" />
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    app:cardBackgroundColor="#C2E2E8"
+                    app:cardCornerRadius="10dp" />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/menuRvList"
+                    android:layout_width="match_parent"
+                    android:layout_height="543dp"
+                    android:layout_marginTop="16dp" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/AddFlotBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:src="@drawable/ic_add_black_24dp"
+            app:fabSize="normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Floating action button for add alarm -->
+        <!-- Make sure that you are constraining this
+             button to the parent button -->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/AddCartBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+
+            app:fabSize="normal"
+            app:layout_constraintBottom_toTopOf="@+id/AddFlotBtn"
+            app:layout_constraintEnd_toEndOf="@+id/AddFlotBtn"
+            app:layout_constraintStart_toStartOf="@+id/AddFlotBtn"
+            app:srcCompat="@drawable/ic_cart_me1"
+            android:contentDescription="TODO" />
+
+        <!-- Action name text for the add alarm button -->
+        <!-- Make sure that you are constraining this Text to
+             the add Alarm FAB button -->
+        <TextView
+            android:id="@+id/AddCartTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="Cart"
+            android:textColor="@color/teal_200"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/AddCartBtn"
+            app:layout_constraintEnd_toStartOf="@+id/AddCartBtn"
+            app:layout_constraintTop_toTopOf="@+id/AddCartBtn" />
+
+        <!-- Floating action button for add person -->
+        <!-- Make sure that you are constraining this
+             button to the add Alarm FAB button -->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/AddFavBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            app:fabSize="normal"
+            app:layout_constraintBottom_toTopOf="@+id/AddCartBtn"
+            app:layout_constraintEnd_toEndOf="@+id/AddCartBtn"
+            app:layout_constraintStart_toStartOf="@+id/AddCartBtn"
+            app:srcCompat="@drawable/ic_love_icon" />
+
+        <!-- Action name text for the add person button -->
+        <!-- Make sure that you are constraining this Text
+             to the add Person FAB button -->
+        <TextView
+            android:id="@+id/AddFavTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="FAVORITE"
+            android:textStyle="bold"
+            android:textColor="@color/teal_200"
+            app:layout_constraintBottom_toBottomOf="@+id/AddFavBtn"
+            app:layout_constraintEnd_toStartOf="@+id/AddFavBtn"
+            app:layout_constraintTop_toTopOf="@+id/AddFavBtn"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
